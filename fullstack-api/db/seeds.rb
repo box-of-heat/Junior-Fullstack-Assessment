@@ -81,3 +81,14 @@ smokey = Pet.create(
   favorite_food: "fish",
   favorite_toy: "feather"
 )
+
+# Create Garfield
+garfield = Pet.create(
+  name: "Garfield",
+  species: "cat",
+  age: 40,
+  color: "orange",
+  breed: "persian",
+  favorite_food: "lasagna",
+  favorite_toy: "feather"
+)

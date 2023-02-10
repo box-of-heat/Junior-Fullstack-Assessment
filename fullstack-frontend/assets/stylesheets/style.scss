@@ -50,9 +50,11 @@ $brand-color: #7AACC3;
     font-size: 14px;
     padding: 10px 20px;
     display: inline-block;
+    transition: 350ms;
 
     &:hover {
       color: #898989;
+      opacity: 0.65;
     }
   }
 }

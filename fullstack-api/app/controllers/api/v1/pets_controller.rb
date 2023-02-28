@@ -5,8 +5,10 @@ module Api
     class PetsController < ApplicationController
 
       def index
-        pets = []
+        pets = [fido, spot, rover, fluffy, patches, tiger, smokey]
         render json: pets, status: :ok
+        pet.sort { |pet| pet }
+        p pets.sort!
       end
 
     end

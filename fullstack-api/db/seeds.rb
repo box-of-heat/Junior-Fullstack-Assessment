@@ -81,3 +81,15 @@ smokey = Pet.create(
   favorite_food: "fish",
   favorite_toy: "feather"
 )
+
+scooby = Pet.create(
+  name: 'Bobi',
+  species: 'Dog',
+  breed:'Great Dane',
+  age: 2,
+  color:'Brown',
+  favorite_food:'My Caps',
+  favorite_toy: 'also, my Caps',
+  special_property: 'Dripped out by Heat!',
+  featured: true,
+)

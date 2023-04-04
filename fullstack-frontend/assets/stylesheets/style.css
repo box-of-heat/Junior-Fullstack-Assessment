@@ -239,4 +239,8 @@ main {
   display: inline-block;
   width: 30px;
   height: 30px;
+}
+
+.pets__card--featured {
+  border: 2px solid gold;
 }/*# sourceMappingURL=style.css.map */

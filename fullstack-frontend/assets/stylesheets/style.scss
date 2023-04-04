@@ -1,9 +1,10 @@
 @import '_reset';
 @import '_general';
 
+
 // Header
 .main-header {
-  background-color: #7AC3B0;
+  background-color: $brand-color;
   width: 100%;
 
   &__container {
@@ -17,7 +18,7 @@
       justify-content: center;
     }
   }
-  
+
   &__logo {
     display: inline-block;
     width: 60px;
@@ -136,7 +137,7 @@ main {
       text-align: center;
       text-decoration: none;
       color: #fff;
-      background-color: #7AC3B0;
+      background-color: $brand-color;
       padding: 10px 0;
       border-radius: 5px;
       font-size: 14px;
@@ -152,7 +153,7 @@ main {
 
 // Footer
 .main-footer {
-  background-color: #7AC3B0;
+  background-color: $brand-color;
   width: 100%;
   padding: 20px 0;
 

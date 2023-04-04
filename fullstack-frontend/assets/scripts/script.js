@@ -17,8 +17,9 @@ class Pet {
   }
 
   generateCard() {
+    const featuredClass = this.featured ? 'pets__card--featured' : '';
     return `
-      <div class="pets__card">
+      <div class="pets__card ${featuredClass}">
         <h2 class="pets__card__title">${this.name}</h2>
         <p class="pets__card__info">Species: ${this.species}</p>
         <p class="pets__card__info">Age: ${this.age}</p>
@@ -41,6 +42,7 @@ class Pet {
     });
   }
 }
+
 
 const fetchPets = species => {
   fetch(`http://127.0.0.1:3000/api/v1/pets${species ? `?species=${species}` : ''}`).then(response => response.json()).then(data => {

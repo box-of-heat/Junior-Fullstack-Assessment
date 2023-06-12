@@ -1,65 +1,18 @@
-window.pets = [];
-const pushPet = pet => {
-  window.pets.push(pet);
-  Pet.renderAll();
-}
+import { displayMessage, Pet, renderSearchForm, renderSortSelector, renderPerPageSelector, renderCrudActionButtons, fetchPets } from './index.js';
 
-class Pet {
-  constructor(name, species, age, color, breed, favoriteFood, favoriteToy, featured = false) {
-    this.name = name;
-    this.species = species;
-    this.age = age;
-    this.color = color;
-    this.breed = breed;
-    this.favoriteFood = favoriteFood;
-    this.favoriteToy = favoriteToy;
-    this.featured = featured;
-  }
-
-  generateCard() {
-    return `
-      <div class="pets__card">
-        <h2 class="pets__card__title">${this.name}</h2>
-        <p class="pets__card__info">Species: ${this.species}</p>
-        <p class="pets__card__info">Age: ${this.age}</p>
-        <p class="pets__card__info">Color: ${this.color}</p>
-        <p class="pets__card__info">Breed: ${this.breed}</p>
-        <p class="pets__card__info">Favorite Food: ${this.favoriteFood}</p>
-        <p class="pets__card__info">Favorite Toy: ${this.favoriteToy}</p>
-        <button type="button" class="pets__card__button">More Info</button>
-      </div>
-    `;
-  }
-
-  static renderAll() {
-    const petsGrid = document.querySelector('.pets__grid');
-    if (!petsGrid) return;
-
-    petsGrid.innerHTML = '';
-    window.pets.forEach(pet => {
-      petsGrid.innerHTML += pet.generateCard();
-    });
-  }
-}
-
-const fetchPets = species => {
-  fetch(`http://127.0.0.1:3000/api/v1/pets${species ? `?species=${species}` : ''}`).then(response => response.json()).then(data => {
-    data.forEach(pet => {
-      pushPet(new Pet(
-        pet.name,
-        pet.species,
-        pet.age,
-        pet.color,
-        pet.breed,
-        pet.favorite_food,
-        pet.favorite_toy,
-        pet.featured
-      ));
-    });
-  });
-}
-
-// Check params for "species" and fetch pets accordingly
-const params = new URLSearchParams(window.location.search);
-const species = params.get('species');
-fetchPets(species);
+// Check params and fetch pets accordingly
+  const params = new URLSearchParams(window.location.search);
+  const species = params.get('species');
+  const breed = params.get('breed');
+  const age = params.get('age');
+  const page = params.get('page');
+  const per = params.get('per');
+  const name = params.get('name');
+  const searchTerm = params.get('searchTerm');
+  const sortBy = params.get('sortBy');
+  
+  fetchPets(species, breed, age, page, per, name, searchTerm, sortBy);
+  renderSearchForm();
+  renderPerPageSelector();
+  renderSortSelector();
+  renderCrudActionButtons();

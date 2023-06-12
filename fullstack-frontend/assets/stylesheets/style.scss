@@ -1,9 +1,11 @@
 @import '_reset';
 @import '_general';
 
+$brand-color: #7AACC3;
+
 // Header
 .main-header {
-  background-color: #7AC3B0;
+  background-color: $brand-color;
   width: 100%;
 
   &__container {
@@ -17,7 +19,6 @@
       justify-content: center;
     }
   }
-  
   &__logo {
     display: inline-block;
     width: 60px;
@@ -49,15 +50,19 @@
     font-size: 14px;
     padding: 10px 20px;
     display: inline-block;
+    opacity: 1;
+    transition: color 0.8s;
 
     &:hover {
       color: #898989;
+      opacity: 0.2;
     }
   }
 }
 
 // Main Content
 main {
+  position: relative;
   min-height: calc(100vh - 120px);
   padding: 60px 0;
 
@@ -82,7 +87,7 @@ main {
     font-weight: bold;
     margin-bottom: 10px;
     display: inline-block;
-    border-bottom: 3px solid #7AC3B0;
+    border-bottom: 3px solid $brand-color;
     padding-bottom: 5px;
     min-width: 150px;
     margin-bottom: 25px;
@@ -96,6 +101,58 @@ main {
     font-size: 14px;
     line-height: 1.5;
   }
+}
+
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 500px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 10000;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error_messages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #721c24;
 }
 
 .pets {
@@ -130,13 +187,13 @@ main {
       margin-bottom: 12px;
     }
 
-    &__button {
+    &__button{
       display: block;
       width: 100%;
       text-align: center;
       text-decoration: none;
       color: #fff;
-      background-color: #7AC3B0;
+      background-color: $brand-color;
       padding: 10px 0;
       border-radius: 5px;
       font-size: 14px;
@@ -148,11 +205,69 @@ main {
       cursor: pointer;
     }
   }
+
+  &__featured {
+    border: 3px solid #FFD700;
+    padding: 20px;
+  }
+
+  &__celebrity{
+    border: 5px solid #af69ef;
+    background-color: aquamarine;
+    padding: 20px;
+  }
 }
+
+form {
+  width: 100%;
+  padding: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+
+  label {
+    font-weight: bold;
+    margin-top: 20px;
+  }
+
+  input[type="text"] {
+    margin-top: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  input[type="number"] {
+    margin-top: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  input[type="submit"] {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #444;
+    }
+  }
+}
+
 
 // Footer
 .main-footer {
-  background-color: #7AC3B0;
+  background-color: $brand-color;
   width: 100%;
   padding: 20px 0;
 
